@@ -393,6 +393,13 @@ class TestRunner implements IAsyncDelegateObserver
             asyncDelegate = null;
         }
 
+#if js
+        if(e.stack != null)
+        {
+            e.message += "\n" + Std.string(e.stack);
+        }
+#end
+
         #if hamcrest
             if (Std.is(e, org.hamcrest.AssertionException))
                e = new AssertionException(e.message, e.info);
