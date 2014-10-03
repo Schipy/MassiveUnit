@@ -102,6 +102,8 @@ class UnhandledException extends MUnitException
 		// you might want to use source-map-support package to get haxe sources in the traceback
 		if (s == "")
 			s = untyped source.stack;
+		if (s == null)
+			s = "";
 		#end
 
         return s;
